@@ -1,0 +1,94 @@
+.container{
+  display: flex;
+  align-items: center;
+  width: 1000px;
+  justify-content: center;
+  background-color: rgba(0,0,0,.7);
+  margin: 150px;
+  padding: 20px;
+  border-radius: 25px;
+
+}
+
+.textContainer{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  color: #fff;
+  letter-spacing: 1.5px;
+  margin-left: 50px;
+}
+.title{
+  margin-bottom: 60px;
+  background-color: hsla(265, 59%, 57%, 0.768);
+  border-radius: 50px;
+  padding: 10px 0 15px 0;
+
+
+}
+.info{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: minmax(auto);
+  text-align: left;
+  line-height: 50px;
+  
+}
+.characterInfo{
+  color: rgb(0, 255, 76);
+  text-transform: uppercase;
+  font-size: 0.88rem;
+}
+
+.image{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+.characterImg{
+  border: 6px solid #fff;
+  border-radius: 25px;
+}
+
+.buttonContainer{
+  position: absolute;
+  left: 70px;
+  top: 130px;
+    
+}
+
+.button{
+    overflow: hidden;
+    position: relative;
+    padding: 15px;
+    cursor: pointer;
+    background-color: transparent;
+    border: 3px solid #854fd2;
+    border-radius: 5px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #fff;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 3px black;
+    z-index: 3;
+    
+}
+
+.button::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 200%;
+    left: 0;
+    top: -200%;
+    background-color: #854fd2;
+    border-radius: 50%;
+    z-index: -1;
+    transition: all .7s ease;
+}
+.button:hover::before{
+    box-shadow: 1px 1px 5px 1px black;
+    top: 0;
+    border-radius: 3px;
+}

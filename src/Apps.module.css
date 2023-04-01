@@ -1,0 +1,5 @@
+.Cards{
+    background-image: url('../public/img/space-background.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+}

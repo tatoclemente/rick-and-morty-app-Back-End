@@ -1,0 +1,23 @@
+.container{
+    margin-top:50px;
+    max-width: 1200px;
+    color: #fff;
+}
+
+.presentation{
+    display: flex;
+    padding: 50px;
+
+}
+
+.textContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 50px;
+
+}
+
+.photo img{
+    width: 400px;
+}
