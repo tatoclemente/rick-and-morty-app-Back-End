@@ -1,7 +1,9 @@
 const ROUTE = {
-    HOME : '/',
+    LOGIN : '/login',
     ABOUT : '/about',
-    DETAIL : '/detail'
+    DETAIL : '/detail',
+    FAVORITES: '/favorites',
+    ERROR: '/404',
 }
 
 export default ROUTE

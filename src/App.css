@@ -10,6 +10,16 @@
    
    background-image: url('../public/img/space-background.jpg');
    background-attachment: fixed;
-   background-size: cover;
+   background-size: 120%;
+   animation: movimientoBack 30s linear infinite alternate;
 
+}
+
+@keyframes movimientoBack{
+   from{
+      background-position: bottom left;
+   }
+   to{
+      background-position: top right;
+   }
 }

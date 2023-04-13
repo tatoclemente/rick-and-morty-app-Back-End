@@ -1,9 +1,14 @@
 .container{
-    margin-top:50px;
+    margin:50px 50px 0 50px;
     max-width: 1200px;
     color: #fff;
 }
-
+.line{
+    width: 90vw;
+    height: 10px;
+    background-color: rgb(135, 81, 210);
+    border-radius: 5px;
+}
 .presentation{
     display: flex;
     padding: 50px;
@@ -14,10 +19,19 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    margin: 50px;
+    height: 500px;
+    margin: 0 20px;
+    border: 5px solid rgb(135, 81, 210);
+    border-radius: 2rem 0 0 2rem;
+    background-color: rgba(0,0,0,.7);
 
 }
-
+.textContainer p{
+    margin: 0 auto;
+    width: 80%
+}
 .photo img{
-    width: 400px;
+    height: 500px;
+    border-radius: 0 2rem 2rem 0;
+    border: 5px solid rgb(135, 81, 210);
 }

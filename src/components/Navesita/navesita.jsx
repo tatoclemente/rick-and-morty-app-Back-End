@@ -13,8 +13,8 @@ import styled from "styled-components";
 
 const NaveContainer = styled.div`
   position: fixed;
-  top:50px;
-  left: 0;
+  top:30px;
+  left: -10px;
   animation: movimiento 10s linear infinite;
   height: 400px;
   width: 400px;
@@ -31,7 +31,7 @@ const NaveContainer = styled.div`
       transform: translateX(0);
     }
     50%{
-      transform: translateX(150vw) scale(-0.5);
+      transform: translateX(160vw) scale(-0.5);
     }
     70%{
       transform: translateX(0);
