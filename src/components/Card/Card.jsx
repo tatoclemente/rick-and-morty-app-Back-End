@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import ROUTE from "../../helpers/routes.helpers";
 import { connect } from "react-redux";
 import { addFav, removeFav } from "../../redux/actions/actions";
+import { isDisabled } from "@testing-library/user-event/dist/utils";
 
 function Card({
   onClose,
@@ -43,6 +44,12 @@ function Card({
  }, [myFavorites]);
   return (
     <CardContainer>
+      {location.pathname === '/favorites' ?
+        <ShowID>
+          <p>{id}</p>
+        </ShowID> : null
+      }
+
       {isFav ? (
         <ButtonFav onClick={handleFavorite}>❤️</ButtonFav>
       ) : (
@@ -100,7 +107,7 @@ const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-  background-color: #e5e5e5;
+  background-color: rgba(0,0,0,.7);
   width: 230px;
   height: 280px;
   box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.4);
@@ -108,13 +115,26 @@ const CardContainer = styled.div`
   border: 1.5px solid #c6c6c6;
   margin: 15px 40px;
   transition: 0.5s ease-in-out;
-  overflow: hidden;
+  /* overflow: hidden; */
   user-select: none;
   &:hover {
     transform: scale(1.05);
     box-shadow: 1px 1px 15px 10px rgba(0, 255, 76, 0.4);
     border: 1.5px solid rgb(0, 255, 76);
   }
+`;
+const ShowID = styled.div`
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  height: auto;
+  margin-bottom: -85px;
+  margin-left: -18px;
+  z-index: 3;
+  padding: 6px 6px;
+  border-radius: 50%;
+  background-color: rgb(135, 81, 210);
+  color: #fff;
 `;
 const ButtonFav = styled.button`
   position: absolute;
@@ -153,7 +173,8 @@ const ButtonClose = styled.button`
 const ImageCard = styled.img`
   position: relative;
   top: 0;
-  box-shadow: 0 0 1px 0 5px black;
+  border-radius: 10px 10px 0 0;
+  box-shadow: 0 1px 5px black;
 
 `;
 const Name = styled.h1`
@@ -177,16 +198,21 @@ const Name = styled.h1`
   text-shadow: 0.5px 0.5px 5px;
 `;
 const AttContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  position: relative;
-  bottom: -15px;
+  height: 50px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-self: center;
+  align-items: center;
+  padding: 0 5px 2px 5px;
 `;
 const Attributes = styled.h2`
   span {
     font-weight: 400;
+    color: #fff;
   }
   margin: 0 5px;
-  font-size: 0.8em;
+  font-size: 0.7em;
   font-weight: 500;
+  color:rgb(0, 255, 76);
+  letter-spacing: 1px;
 `;

@@ -18,12 +18,12 @@ const Favorites = () => {
     <CardsContainer>
       <OptionContainer>
         <select name="ordenamiento" onChange={handleOrder}>
-          <option value="OrderBy">Order By...</option>
+          <option value="" disabled selected>Order By...</option>
           <option value="Ascendente">Ascendente</option>
           <option value="Descendente">Descendente</option>
         </select>
         <select name="filtrado" onChange={handleFiltered}>
-          <option value="FilterBy">Filter By...</option>
+          <option value="FilterBy" disabled selected>Filter By...</option>
           <option value="allFavorites">All Favorites</option>
           <option value="Male">Male</option>
           <option value="Female">Female</option>

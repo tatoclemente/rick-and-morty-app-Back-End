@@ -1,9 +1,8 @@
-import { ADD_FAV, FILTER, ORDER, REMOVE_FAV, SET_ACCESS } from "./actions/types";
+import { ADD_FAV, FILTER, ORDER, REMOVE_FAV } from "./actions/types";
 
 const initialState = {
   myFavorites: [],
   allCharacters: [],
-  access: false,
 };
 
 const rootReducer = (state = initialState, { type, payload }) => {
@@ -18,14 +17,15 @@ const rootReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         myFavorites: state.myFavorites.filter((char) => char.id !== +payload), 
+        allCharacters: state.allCharacters.filter((char) => char.id !== +payload)
   
       };
     case FILTER:
-     const filterByGender = [...state.allCharacters].filter((char)=>{
+     const filterByGender = state.allCharacters.filter((char)=>{
       if(payload !== 'allFavorites'){
         return char.gender === payload
       } else{
-        return [state.allCharacters]
+        return state.allCharacters
       }})
  
       return {
@@ -46,15 +46,6 @@ const rootReducer = (state = initialState, { type, payload }) => {
         ...state,
         myFavorites: orden
       }
-      // case SET_ACCESS:
-      //   const isLogin = (access)=>{
-      //     if(access === true) return false
-      //      else return true
-      //   }
-      //     return {
-      //     ...state, 
-      //     access: isLogin(state.access)
-      //   }
     default:
       return {
         ...state,
