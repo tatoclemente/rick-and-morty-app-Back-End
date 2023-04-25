@@ -11,8 +11,8 @@ export default function Detail() {
     fetch(`http://localhost:3001/rickandmorty/character/${detailId}`)
       .then((response) => response.json())
       .then((char) => {
-        if (char[0].name) {
-          setCharacter(char[0]);
+        if (char.name) {
+          setCharacter(char);
         } else {
           window.alert("No hay personajes con ese ID");
         }

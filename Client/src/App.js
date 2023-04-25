@@ -16,7 +16,6 @@ function App() {
   const location = useLocation();
 
   const [characters, setCharacters] = useState([]);
-  console.log(characters);
   const navigate = useNavigate();
 
   const [access, setAccess] = useState(false);
@@ -43,11 +42,10 @@ function App() {
     fetch(`http://localhost:3001/rickandmorty/character/${id}`)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-        if (data[0]?.name) {
-          let repetidos = characters.find((char) => char.id === data[0].id);
+        if (data.name) {
+          let repetidos = characters.find((char) => char.id === data.id);
           if (!repetidos) {
-            setCharacters((oldChars) => [...oldChars, data[0]]);
+            setCharacters((oldChars) => [...oldChars, data]);
           } else {
             window.alert("ID repetido, prueba con otro ID");
           }
@@ -58,7 +56,7 @@ function App() {
   };
 
   const randomSearch = () => {
-    const idRandom = Math.floor(Math.random() * 6);
+    const idRandom = Math.floor(Math.random() * 827);
     onSearch(idRandom);
   };
   const onClose = (id) => {

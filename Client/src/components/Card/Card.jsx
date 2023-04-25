@@ -112,7 +112,7 @@ const CardContainer = styled.div`
   box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.4);
   border-radius: 10px;
   border: 1.5px solid #c6c6c6;
-  margin: 15px 40px;
+  margin: 20px 40px;
   transition: 0.5s ease-in-out;
   /* overflow: hidden; */
   user-select: none;
@@ -127,6 +127,7 @@ const ShowID = styled.div`
   top: -20px;
   left: 50%;
   height: auto;
+  min-width: 35px;
   margin-bottom: -85px;
   margin-left: -18px;
   z-index: 3;
