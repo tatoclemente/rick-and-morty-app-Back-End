@@ -7,6 +7,7 @@ export const SearchContainer = styled.div`
   border-radius: 5px;
   margin: 0 auto;
   input{
+    width: 230px;
     margin-right: 6px;
     height: 25px;
     border: 1.5px solid #c6c6c6;

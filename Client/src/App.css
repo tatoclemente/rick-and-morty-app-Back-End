@@ -8,7 +8,7 @@
    text-align: center;
    min-height: 100vh;
    
-   background-image: url('../public/img/space-background.jpg');
+   background-image: url('./assets/space-background.jpg');
    background-attachment: fixed;
    background-size: 120%;
    animation: movimientoBack 30s linear infinite alternate;

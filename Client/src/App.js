@@ -11,7 +11,9 @@ import Nave from "./assets/navesita.png";
 import ROUTE from "./helpers/routes.helpers";
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import Favorites from "./components/favorites/Favorites";
-
+import swal from 'sweetalert';
+import axios from 'axios';
+import Bienvenida from './components/Cards/Bienvenida';
 function App() {
   const location = useLocation();
 
@@ -19,15 +21,16 @@ function App() {
   const navigate = useNavigate();
 
   const [access, setAccess] = useState(false);
-  const EMAIL = "tatoapuros@gmail.com";
-  const PASSWORD = "Dni3566753";
-
+  
   const login = (userData) => {
-    if (userData.email === EMAIL && userData.password === PASSWORD) {
-      setAccess(true);
-      navigate("/");
-    }
-  };
+    const { email, password } = userData;
+    const URL = 'http://localhost:3001/rickandmorty/login/';
+    axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+       const { access } = data;
+       setAccess(data);
+       access && navigate('/');
+    });
+  }
 
   const logout = () => {
     setAccess(false);
@@ -39,6 +42,7 @@ function App() {
   },[]);
 
   const onSearch = (id) => {
+    if(Number.isInteger(parseInt(id)) && id < 827){
     fetch(`http://localhost:3001/rickandmorty/character/${id}`)
       .then((response) => response.json())
       .then((data) => {
@@ -47,12 +51,13 @@ function App() {
           if (!repetidos) {
             setCharacters((oldChars) => [...oldChars, data]);
           } else {
-            window.alert("ID repetido, prueba con otro ID");
+            swal ("Ups! Lo siento!","ID repetido, prueba con otro ID", "warning",{buttons: true,});
           }
-        } else {
-          window.alert("No hay personajes con ese ID");
         }
       });
+    } else{
+      swal("Ups! Lo siento!", "Debe ingresar un ID válido", "warning")
+    }
   };
 
   const randomSearch = () => {
@@ -79,11 +84,11 @@ function App() {
 
       <Routes>
         <Route path={ROUTE.LOGIN} 
-          element={<Form login={login} />} 
+          element={<Form login={login} />}      
         />
         <Route
           path='/'
-          element={<Cards characters={characters} onClose={onClose} />}
+          element={characters.length ?<Cards characters={characters} onClose={onClose} />:<Bienvenida/>}
         />
         <Route 
           path={ROUTE.FAVORITES} 

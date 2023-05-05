@@ -5,11 +5,6 @@ import App from './App'
 import {BrowserRouter} from 'react-router-dom'
 import store from '../src/redux/store'
 import { Provider } from 'react-redux'
-// ReactDOM.render(
-//   <App />,
-//   document.getElementById('root')
-// )
-
 
 const rootElement = document.getElementById("root");
 const root = ReactDOM.createRoot(rootElement);
