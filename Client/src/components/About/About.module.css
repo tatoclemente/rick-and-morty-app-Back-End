@@ -18,16 +18,23 @@
   border: 5px solid rgb(135, 81, 210);
   border-radius: 2rem 0 0 2rem;
   background-color: rgba(0,0,0,.7);
+  transform: translateX(-150%);
+  opacity: 0;
   
 }
 .entradaIzquierda {
   animation: entradaIzquierda .7s ease-in;
+  animation-fill-mode: forwards;
+
+  
 }
 @keyframes entradaIzquierda {
   from{
-    transform: translateX(-100%);
+    opacity: 0;
+    transform: translateX(-150%);
   }
   to{
+    opacity: 1;
     transform: translateX(0)
   }
 }
@@ -44,17 +51,19 @@
   background-color: rgb(135, 81, 210);
   border-radius: 5px;
   margin: 100px 0;
+  transform: translateX(-150%);
 }
 
 .animationLine {
-  animation: animation-line .7s ease-in;
+  animation: animation-line .7s ease-in-out;
+  animation-fill-mode: forwards;
 }
 
 @keyframes animation-line {
-  0%{
-    transform: translateX(-100%);
+  from{
+    transform: translateX(-150%);
   }
-  100%{
+  to{
     transform: translateX(0);
   }
 }
@@ -63,17 +72,23 @@
   height: 500px;
   border-radius: 0 2rem 2rem 0;
   border: 5px solid rgb(135, 81, 210);
-  
 }
 
+.imageContainer {
+  transform: translateX(150%);
+  opacity: 0;
+}
 .entradaDerecha {
   animation: entradaDerecha 1.5s ease-in-out;
+  animation-fill-mode: forwards;
 }
 @keyframes entradaDerecha {
-  0%{
-      transform: translateX(100%);
+  from{
+      opacity: 0;
+      transform: translateX(150%);
   }
-  100%{
+  to{
+      opacity: 1;
       transform: translateX(0)
   }
 }

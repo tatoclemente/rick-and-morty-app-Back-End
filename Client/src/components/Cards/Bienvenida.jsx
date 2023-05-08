@@ -7,7 +7,7 @@ const Bienvenida = () => {
     <div className={style.container}>
       <h1>Bienvenido al Universo de</h1>
       <img src={title} alt="rick-and-morty-text" />
-      <h3>Comience a descubrir sus personajes favoritos y ¡DIVIERTASE!</h3>
+      <h3>Comience a descubrir sus personajes favoritos y... <br /><span>¡DIVIERTASE!</span></h3>
     </div>
   );
 };

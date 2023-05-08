@@ -15,17 +15,25 @@
 }
 @keyframes aparecer {
   0% {
+    opacity: 0;
     transform: scale(0)
   }
   100% {
+    opacity: 1;
     transform: scale(1)
   }
 }
 .container h1 {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   text-transform: uppercase;
   margin-bottom: 30px;
-  margin-bottom: 20px;
+}
+.container h3 {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+.container h3 span{
+  font-weight: 500;
 }
 .container img{
   margin-bottom: 20px;
