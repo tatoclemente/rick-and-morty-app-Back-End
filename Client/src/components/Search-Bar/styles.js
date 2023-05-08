@@ -13,6 +13,7 @@ export const SearchContainer = styled.div`
     border: 1.5px solid #c6c6c6;
     border-radius: 5px;
     padding: 0 5px;
+    font-size: .85rem;
   }
 
   button{

@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { CardsContainer } from './styleCards'
 import Card from '../Card/Card';
 
 
 
-export default function Cards({ characters, onClose}) {
+export default function Cards({ characters, onClose }) {
   
   const showCards = characters.map(({id, name, species, gender, image}) => {
 

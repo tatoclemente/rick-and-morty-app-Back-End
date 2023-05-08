@@ -1,9 +1,9 @@
 import React from "react";
 import SearchBar from "../Search-Bar/SearchBar.jsx"
 import Style from './Nav.module.css'
-import Logo from '../../images/Logo-Rick&Morty.png'
+import Logo from 'images/Logo-Rick&Morty.png'
 import { Link, NavLink, useLocation } from 'react-router-dom'
-import ROUTE from "../../helpers/routes.helpers.js";
+import ROUTE from "helpers/routes.helpers.js";
 
 
 const Nav = ({ onSearch, randomSearch, logout }) => {

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Link, useLocation } from "react-router-dom";
-import ROUTE from "../../helpers/routes.helpers";
+import ROUTE from "helpers/routes.helpers";
 import { connect } from "react-redux";
-import { addFav, removeFav } from "../../redux/actions/actions";
+import { addFav, removeFav } from "redux/actions/actions";
 
 function Card({
   onClose,
@@ -19,6 +19,7 @@ function Card({
   const location = useLocation()
   const [isFav, setIsFav] = useState(false);
   const handleFavorite = () => {
+
     if(isFav) {
       setIsFav(false)
       removeFav(id)
@@ -41,6 +42,7 @@ function Card({
        }
     });
  }, [myFavorites]);
+
   return (
     <CardContainer>
       {location.pathname === '/favorites' ?
@@ -55,7 +57,6 @@ function Card({
         <ButtonFav onClick={handleFavorite}>🤍</ButtonFav>
       )}
       {location.pathname === '/'? <ButtonClose onClick={onClose}>X</ButtonClose>:null}
-      {/* {isFav? <ButtonClose onClick={handleFavorite}>X</ButtonClose> :<ButtonClose onClick={onClose}>X</ButtonClose>} */}
     
       
       <Link to={`${ROUTE.DETAIL}/${id}`}>
@@ -116,6 +117,15 @@ const CardContainer = styled.div`
   transition: 0.5s ease-in-out;
   /* overflow: hidden; */
   user-select: none;
+  animation: aparecer .5s ease-in;
+  @keyframes aparecer {
+  0% {
+    transform: scale(0)
+  }
+  100% {
+    transform: scale(1)
+  }
+}
   &:hover {
     transform: scale(1.05);
     box-shadow: 1px 1px 15px 10px rgba(0, 255, 76, 0.4);
@@ -126,7 +136,7 @@ const ShowID = styled.div`
   position: absolute;
   top: -20px;
   left: 50%;
-  height: auto;
+  height: 35px;
   min-width: 35px;
   margin-bottom: -85px;
   margin-left: -18px;

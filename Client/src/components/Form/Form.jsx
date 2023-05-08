@@ -1,9 +1,11 @@
 import React, { useState } from "react"
 import Style from './Form.module.css'
-import LogoForm from '../../assets/logoForm.png'
+import LogoForm from 'assets/logoForm.png'
 import validation from '../Functions/validation.js'
-const Form = ({ login }) => {
 
+const Form = ({ login, loading }) => {
+
+ 
   const [userData, setUserData] = useState({
     email: '',
     password: '',
@@ -27,8 +29,8 @@ const Form = ({ login }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    loading()
     login(userData)
-
   }
 
   return (
