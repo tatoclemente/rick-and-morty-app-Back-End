@@ -32,6 +32,8 @@ function App() {
       setLoading(false)
     }, 2500)
   }
+
+
   const login = async (userData) => {
     try {
       const { email, password } = userData;
@@ -56,9 +58,8 @@ function App() {
 
   const onSearch = async (id) => {
     try {
-      if(Number.isInteger(parseInt(id)) && id < 827){
+      if(Number.isInteger(parseInt(id)) && parseInt(id) < 827 && parseInt(id) > 0){
       const {data} = await axios.get(`http://localhost:3001/rickandmorty/character/${id}`)
-      if (data.name) {
         let repetidos = characters.find((char) => char.id === data.id);
         if (!repetidos) {
           setCharacters((oldChars) => [...oldChars, data]);
@@ -69,7 +70,7 @@ function App() {
       } else{
         swal("Ups! Lo siento!", "Debe ingresar un ID válido", "warning")
       }
-      } 
+      
     } catch (error) {
       throw Error(error.message)
     }
@@ -79,9 +80,9 @@ function App() {
     const idRandom = Math.floor(Math.random() * 827);
     onSearch(idRandom);
   };
+
   const onClose = (id) => {
-    const filtered = characters.filter((char) => char.id !== id);
-    console.log(filtered);
+    const filtered = characters.filter((char) => char.id !== id);  
     setCharacters(filtered);
   };
 

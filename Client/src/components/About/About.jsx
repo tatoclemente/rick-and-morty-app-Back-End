@@ -51,9 +51,9 @@ export default function About() {
           <p>
             Se trata de un proyecto integrador de la carrera Full Stack Developer, dónde aplico todo lo aprendido en el bootcamp de Henry.
             <br /> Comenzamos construyendo el Front-End con React, las rutas con react-router, los estilos con CSS puro, usando CSS Modules y tambien 
-            styled-components. <br />
+            styled-components. <br /> 
+            Manejamos los estados globales con Redux, y los componentes con hooks. <br />
             Continuamos creando nuestra aplicación Back-End con Node y Express. <br />
-            Por ultimos crearemos nuestra BDD con MySQL.
           </p>
         </div>
 
