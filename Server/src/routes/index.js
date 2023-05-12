@@ -1,4 +1,4 @@
-const getCharById = require('../controllers/getCharById');
+const handlerCharById = require('../handlers/handleCharById');
 const login = require('../controllers/login');
 const { postFav, deleteFav } = require('../controllers/handleFavorites')
 
@@ -6,7 +6,7 @@ const express = require('express');
 
 const Router = express.Router()
 
-Router.get("/character/:id", getCharById);
+Router.get("/character/:id", handlerCharById);
 
 Router.get("/login", login);
 
