@@ -15,6 +15,7 @@ import swal from 'sweetalert';
 import axios from 'axios';
 import Bienvenida from 'components/Cards/Bienvenida';
 import Loading from "components/Loading/Loading";
+import NewAccount from "components/Form/NewAccount";
 
 
 function App() {
@@ -40,15 +41,31 @@ function App() {
       const URL = 'http://localhost:3001/rickandmorty/login/';
       const {data} = await axios(URL + `?email=${email}&password=${password}`)
       const { access } = data;
-        setAccess(data);
+        setAccess("DATA", data);
         access && navigate('/');  
     } catch (error) {
       throw Error(error.message)
     }
   }
 
+  const newAccount = async (userData)=>{
+    try {
+      const { email, password } = userData;
+      const URL = 'http://localhost:3001/rickandmorty/login';
+      const {data} = await axios.post(URL, {email, password})
+      if(data.message === "Usuario creado correctamente"){
+        swal("Bienvenido!", "Tu cuenta ha sido creada correctamente", "success")
+        navigate(ROUTE.LOGIN)
+      }
+    } catch (error) {
+      throw Error(error.message)
+    }
+  }
+
   useEffect(() => {
-    if(!access) navigate(ROUTE.LOGIN)
+    if(!access && location.pathname !== ROUTE.REGISTER) {
+      navigate(ROUTE.LOGIN)
+    } 
   },[]);
 
   const logout = () => {
@@ -66,11 +83,9 @@ function App() {
         } else {
           swal ("Ups! Lo siento!","ID repetido, prueba con otro ID", "warning",{buttons: true,});
         }
-        
       } else{
         swal("Ups! Lo siento!", "Debe ingresar un ID válido", "warning")
       }
-      
     } catch (error) {
       throw Error(error.message)
     }
@@ -94,7 +109,7 @@ function App() {
 
   return (
     <div className="App">
-      { location.pathname !== ROUTE.LOGIN ?
+      { location.pathname !== ROUTE.LOGIN && location.pathname !== ROUTE.REGISTER?
         <NavBar
           setCharacters={setCharacters}
           onSearch={onSearch}
@@ -105,12 +120,16 @@ function App() {
       }
       
 
-      {location.pathname === ROUTE.LOGIN? <Navesita img={Nave} /> : null}
+      {location.pathname === ROUTE.LOGIN || location.pathname === ROUTE.REGISTER? <Navesita img={Nave} /> : null}
 
       <Routes>
         <Route path={ROUTE.LOGIN} 
           element={<Form login={login} loading={handleLoading} />}      
         />
+        <Route path={ROUTE.REGISTER} 
+          element={<NewAccount newAccount={newAccount} />}      
+        />
+
       
         <Route
           path='/'

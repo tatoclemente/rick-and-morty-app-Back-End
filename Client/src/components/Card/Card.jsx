@@ -12,6 +12,8 @@ function Card({
   species,
   gender,
   id,
+  origin,
+  status,
   addFav,
   removeFav,
   myFavorites
@@ -31,6 +33,8 @@ function Card({
         image,
         species,
         gender,
+        status,
+        origin,
         onClose:{isFav}
      })
     }

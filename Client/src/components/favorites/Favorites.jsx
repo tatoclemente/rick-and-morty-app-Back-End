@@ -62,7 +62,7 @@ const Favorites = () => {
           ))}
         </select>
       </OptionContainer>
-      {myFavorites.map(({ id, image, name, species, gender }) => {
+      {myFavorites.map(({ id, image, name, species, gender, status, origin}) => {
         return (
           <Card
             key={id}
@@ -71,6 +71,8 @@ const Favorites = () => {
             species={species}
             gender={gender}
             image={image}
+            status={status}
+            origin={origin}
           />
         );
       })}

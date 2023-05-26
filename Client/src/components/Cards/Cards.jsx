@@ -6,7 +6,7 @@ import Card from '../Card/Card';
 
 export default function Cards({ characters, onClose }) {
   
-  const showCards = characters.map(({id, name, species, gender, image}) => {
+  const showCards = characters.map(({id, name, species, gender, image, origin, status}) => {
 
     return <Card 
       key={id}
@@ -15,6 +15,8 @@ export default function Cards({ characters, onClose }) {
       species = {species}
       gender = {gender}
       image = {image}
+      origin = {origin}
+      status= {status}
       onClose= {()=>onClose(id)}
       />
     }

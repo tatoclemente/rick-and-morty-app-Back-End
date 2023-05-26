@@ -11,21 +11,10 @@ const rootReducer = (state = initialState, { type, payload }) => {
       return { ...state, 
         myFavorites: payload, 
         allCharacters: payload };
-    // case ADD_FAV:
-    //   return {
-    //     ...state,
-    //     allCharacters: [...state.allCharacters, payload],
-    //     myFavorites: [...state.allCharacters, payload],
-    //   };
+
     case REMOVE_FAV:
       return { ...state, myFavorites: payload };
-    // case REMOVE_FAV: 
-    //   return {
-    //     ...state,
-    //     myFavorites: state.myFavorites.filter((char) => char.id !== +payload), 
-    //     allCharacters: state.allCharacters.filter((char) => char.id !== +payload)
-  
-    //   };
+
     case FILTER:
      const filterByGender = state.allCharacters.filter((char)=>{
       if(payload !== 'allFavorites'){

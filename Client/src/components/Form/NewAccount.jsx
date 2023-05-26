@@ -1,20 +1,21 @@
 import React, { useState } from "react"
-import Style from './Form.module.css'
+import Style from './NewAccount.module.css'
 import LogoForm from 'assets/logoForm.png'
 import validation from '../Functions/validation.js'
-import ROUTES from 'helpers/routes.helpers'
 
-const Form = ({ login, loading }) => {
+const NewAccount = ({ newAccount }) => {
 
  
   const [userData, setUserData] = useState({
     email: '',
     password: '',
+    password_validate: '',
   })
 
   const [errors, setErrors] = useState({
     email: '',
     password: '',
+    password_validate: '',
   })
 
   const handleChange = (event) =>{
@@ -30,8 +31,7 @@ const Form = ({ login, loading }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    loading()
-    login(userData)
+    newAccount(userData)
   }
 
   return (
@@ -39,19 +39,19 @@ const Form = ({ login, loading }) => {
 
       <div className={Style.formWrapper}>
         <form className={Style.form}>
+            <h2>Registrate aquí</h2>
           <img src={LogoForm} alt="rick y morty" />
-          <label htmlFor="email">Username:</label>
+          <label htmlFor="email">E-Mail:</label>
             <input 
               type="text" 
               name="email" 
               value={userData.email}
-              placeholder='Escribe tu correo electrónico...'
+              placeholder='Escribe tu mejor correo electrónico...'
               onChange={handleChange}
               className={errors.email && Style.warning}
             />
             {errors.email ? <p className={Style.danger}>{errors.email}</p> : null}
-
-          <label htmlFor="password">Password:</label>
+            <label htmlFor="password">Password:</label>
             <input 
               type="password" 
               name="password"
@@ -60,12 +60,26 @@ const Form = ({ login, loading }) => {
               onChange={handleChange}
               className={errors.password && Style.warning}
             />
-            {errors.password ? <p className={Style.danger}>{errors.password}</p> : null}    
-          <button onClick={handleSubmit}>Login</button>
-          <p className={Style.register}>No tienes cuenta? <a href={ROUTES.REGISTER}>Registrate</a></p>
+            {errors.password ? <p className={Style.danger}>{errors.password}</p> : null}
+
+          <label htmlFor="password">Repite tu Password:</label>
+            <input 
+              type="password" 
+              name="password_validate"
+              value={userData.password_validate}
+              placeholder='Compurueba tu contraseña...'
+              onChange={handleChange}
+              className={errors.password && Style.warning}
+            />
+            {errors.password ? <p className={Style.danger}>{errors.password}</p> : null}
+
+
+          <button onClick={handleSubmit}>Create Account</button>
         </form>
       </div>
-    </div> 
+    </div>
+    
+    
   )
 }
-export default Form
+export default NewAccount;
