@@ -3,7 +3,7 @@ const { conn } = require('./DB_connection');
 require('dotenv').config();
 
 
-const PORT = process.env.PORT || 3001;
+const port = process.env.PORT || 3001;
 
 // server.listen(PORT, async () =>{
 //   console.log("Server raised in port: " + PORT)
@@ -12,8 +12,8 @@ const PORT = process.env.PORT || 3001;
 
 conn.sync({ alter: true })
 .then(() => {
-  server.listen(PORT, () =>{
-    console.log("Server raised in port: " + PORT)
+  server.listen(port, () =>{
+    console.log("Server raised in port: " + port)
     })
 })
 .catch((error) => {

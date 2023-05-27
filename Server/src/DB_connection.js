@@ -14,16 +14,16 @@ const UserModel = require('./models/User')
 
 
 
-const sequelize = new Sequelize(
+// const sequelize = new Sequelize(
    // URL
-   `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/rickandmorty`,
-   { logging: false, native: false }
-);
+//    `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/rickandmorty`,
+//    { logging: false, native: false }
+// );
 
-// const sequelize = new Sequelize( DB_DEPLOY, { 
-//    logging: false, 
-//    native: false 
-// });
+const sequelize = new Sequelize( DB_DEPLOY, { 
+   logging: false, 
+   native: false 
+});
 
 // EJERCICIO 05
 // Debajo de este comentario puedes ejecutar la función de los modelos.
