@@ -22,13 +22,13 @@ export default function validate(userData) {
         errors.password = 'Este campo no puede estar vacío'
      }
      if (!regexPassword.test(userData.password_validate)) {
-      errors.password = 'Debe tener entre 6 y 10 caracteres, al menos un numero y una mayuscula';
+      errors.password_validate = 'Debe tener entre 6 y 10 caracteres, al menos un numero y una mayuscula';
    }
    if(!userData.password_validate){
-      errors.password = 'Este campo no puede estar vacío'
+      errors.password_validate = 'Este campo no puede estar vacío'
    }
    if(userData.password_validate !== userData.password){
-      errors.password = 'La contraseña debe coincidir'
+      errors.password_validate = 'La contraseña debe coincidir'
    }
   
      return errors

@@ -2,6 +2,8 @@ import React, { useState } from "react"
 import Style from './NewAccount.module.css'
 import LogoForm from 'assets/logoForm.png'
 import validation from '../Functions/validation.js'
+import { Link } from "react-router-dom"
+import ROUTE from "helpers/routes.helpers"
 
 const NewAccount = ({ newAccount }) => {
 
@@ -31,6 +33,7 @@ const NewAccount = ({ newAccount }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    !errors.password_validate && 
     newAccount(userData)
   }
 
@@ -69,12 +72,13 @@ const NewAccount = ({ newAccount }) => {
               value={userData.password_validate}
               placeholder='Compurueba tu contraseña...'
               onChange={handleChange}
-              className={errors.password && Style.warning}
+              className={errors.password_validate && Style.warning}
             />
-            {errors.password ? <p className={Style.danger}>{errors.password}</p> : null}
-
+            {errors.password_validate ? <p className={Style.danger}>{errors.password_validate}</p> : null}
 
           <button onClick={handleSubmit}>Create Account</button>
+          <p className={Style.lastLink}>¿Ya tienes una cuenta?<Link to={ROUTE.LOGIN} className={Style.link}>
+             Inicia sesión aquí</Link></p>
         </form>
       </div>
     </div>

@@ -3,6 +3,7 @@ import Style from './Form.module.css'
 import LogoForm from 'assets/logoForm.png'
 import validation from '../Functions/validation.js'
 import ROUTES from 'helpers/routes.helpers'
+import { Link } from "react-router-dom"
 
 const Form = ({ login, loading }) => {
 
@@ -62,7 +63,7 @@ const Form = ({ login, loading }) => {
             />
             {errors.password ? <p className={Style.danger}>{errors.password}</p> : null}    
           <button onClick={handleSubmit}>Login</button>
-          <p className={Style.register}>No tienes cuenta? <a href={ROUTES.REGISTER}>Registrate</a></p>
+          <p className={Style.lastLink}>No tienes cuenta? <Link to={ROUTES.REGISTER} className={Style.link}>Registrate Aquí</Link></p>
         </form>
       </div>
     </div> 

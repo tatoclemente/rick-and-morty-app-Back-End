@@ -103,8 +103,13 @@
   width: 300px;
 }
 
-.register{
-  text-transform: none;
-  color: black;
-  font-weight: 500;
+.lastLink{
+  color: #fff;
+  font-size: 0.6rem;
+  
+}
+.link{
+  margin-left: 0.5rem;
+  color: #000000;
+  font-weight: bold;
 }

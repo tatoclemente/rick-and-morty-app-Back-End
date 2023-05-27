@@ -53,7 +53,11 @@ function App() {
       const { email, password } = userData;
       const URL = 'http://localhost:3001/rickandmorty/login';
       const {data} = await axios.post(URL, {email, password})
-      if(data.message === "Usuario creado correctamente"){
+  
+      if(data.message === "El email ya existe"){
+        swal("Ups! Lo siento!", "El email ya existe", "warning")
+      
+      }else {
         swal("Bienvenido!", "Tu cuenta ha sido creada correctamente", "success")
         navigate(ROUTE.LOGIN)
       }

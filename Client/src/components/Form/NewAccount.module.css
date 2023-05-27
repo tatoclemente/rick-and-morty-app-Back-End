@@ -62,7 +62,7 @@
  
 }
 .form button:hover{
-  color: #222;
+  color: #000000;
   font-weight: bold;
   cursor: pointer;
 
@@ -101,4 +101,16 @@
 
 .form p{
   width: 300px;
+}
+
+.lastLink{
+  color: #fff;
+  font-size: 0.6rem;
+  
+}
+
+.link{
+  margin-left: 0.5rem;
+  color: #000000;
+  font-weight: bold;
 }
